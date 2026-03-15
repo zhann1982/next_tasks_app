@@ -60,9 +60,14 @@ npm install
 Create a `.env.local` file in the root of your project with the following content:
 
 ```
-MONGODB_URI=mongodb://localhost:27017/next_tasks_app
-JWT_SECRET=your_jwt_secret_here
+MONGODB_URI=mongodb://127.0.0.1:27017
+MONGODB_DB=next_tasks_app
+SESSION_SECRET=8a6aecfdb996e465a33b1afca58b019b59f66065c230a9e31fcdeb98d86b3efa
 ```
 
 - Replace `MONGODB_URI` with your actual MongoDB connection string if using a remote database.
-- Set `JWT_SECRET` to a strong, random string for signing authentication tokens.
+- Set `SESSION_SECRET` to a strong, random string for signing authentication tokens. You can create one by using following command in your terminal:
+
+```
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
